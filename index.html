@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação de Herói</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <style>
+        body{
+            background: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <img src="emblema.png" width="300">
+    <h1>Classificação de Herói</h1>
+    <h3>Nome do Herói:</h3>
+    <input type="text" id="hero_name_input">
+    <h3>Nível de XP do herói:</h3>
+    <input type="number" id="hero_xp_input">
+    <br>
+    <button style="width: 5%; margin-top: 20px; margin-bottom: 20px;" onclick="calculate()">Calcular</button>
+    <div id="hero_class"></div>
+
+    <script>
+        let hero_name;
+        let hero_xp;
+        let hero_class;
+
+        function calculate() {
+            hero_name = document.getElementById("hero_name_input").value;
+            hero_xp = document.getElementById("hero_xp_input").value;
+
+            if (hero_xp <= 1000){
+                hero_class = "Ferro";
+            }
+            if (hero_xp >= 1001 && hero_xp <= 2000){
+                hero_class = "Bronze";
+            }
+            if (hero_xp >= 2001 && hero_xp <= 4000){
+                hero_class = "Prata";
+            }
+            if (hero_xp >= 4001 && hero_xp <= 6000){
+                hero_class = "Ouro";
+            }
+            if (hero_xp >= 6001 && hero_xp <= 8000){
+                hero_class = "Platina";
+            }
+            if (hero_xp >= 8001 && hero_xp <= 10000){
+                hero_class = "Ascendente";
+            }
+            if (hero_xp >= 10001){
+                hero_class = "Radiante";
+            }
+
+            function classResult() {
+                let hero_class_div = document.getElementById("hero_class").innerHTML = "O herói " + hero_name + " tem a classificação " + hero_class;
+
+            }
+            classResult();
+
+        }
+    </script>
+</body>
+</html>
